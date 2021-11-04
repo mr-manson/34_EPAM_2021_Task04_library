@@ -1,0 +1,5 @@
+bookID=1234 bookAuthor='Ilf & Petrov' bookTitle='12 chairs'
+bookID=2345 bookAuthor='Ilf & Petrov' bookTitle='Golden calf'
+bookID=3456 bookAuthor='Harry Harrison' bookTitle='The Stainless Steel Rat'
+bookID=4567 bookAuthor='Francis Carsac' bookTitle='Terre en fuite'
+bookID=5678 bookAuthor='Robert Heinlein' bookTitle='Starship Troopers'

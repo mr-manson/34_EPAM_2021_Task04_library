@@ -1,0 +1,4 @@
+userID=11122 userLogin='vasya' userPassword='123456' firstName='Vasya' lastName='Vasin' userRole=admin
+userID=22233 userLogin='kolya' userPassword='qwerty' firstName='Kolya' lastName='Kolin' userRole=reader
+userID=33344 userLogin='katya' userPassword='asdfgh' firstName='Katya' lastName='Katina' userRole=reader
+userID=33344 userLogin='masha' userPassword='zxcvbn' firstName='Masha' lastName='Mashina' userRole=reader
