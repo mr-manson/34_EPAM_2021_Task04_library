@@ -18,23 +18,15 @@ public class DAOProvider {
 
         public UserDAO getUserDao() {
             if (userDAO == null) {
-                synchronized (UserDAO.class) {
-                    if (userDAO == null) {
-                        userDAO = new UserDAOImpl();
+                userDAO = new UserDAOImpl();
                     }
-                }
-            }
             return userDAO;
         }
 
         public BookDAO getBookDao() {
             if (bookDAO == null) {
-                synchronized (BookDAO.class) {
-                    if (bookDAO == null) {
-                        bookDAO = new BookDAOImpl();
+                bookDAO = new BookDAOImpl();
                     }
-                }
-            }
             return bookDAO;
         }
 }
