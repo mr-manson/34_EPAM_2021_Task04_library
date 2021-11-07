@@ -30,18 +30,18 @@ public class UserDAOImpl implements UserDAO {
 
 
     @Override
-    public User registration(User newUser) throws DAOException, FileNotFoundException {
+    public boolean registration(User newUser) throws DAOException, FileNotFoundException {
 
 
-        return newUser;
+        return false;
     }
 
     @Override
-    public User remove(int userID) throws DAOException, FileNotFoundException {
+    public boolean remove(int userID) throws DAOException, FileNotFoundException {
         User user = new User();
 
 
-        return user;
+        return false;
     }
 
 
