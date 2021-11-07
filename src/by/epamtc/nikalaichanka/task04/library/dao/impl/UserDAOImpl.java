@@ -38,8 +38,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean remove(int userID) throws DAOException, FileNotFoundException {
-        User user = new User();
-
+        
 
         return false;
     }
