@@ -11,7 +11,6 @@ public class Authorization implements Command {
 
     public String execute(String request) throws ServiceException, FileNotFoundException {
         String[] splitRequest = request.split(" ");
-
         String login = splitRequest[1];
         String password = splitRequest[2];
 
@@ -20,7 +19,7 @@ public class Authorization implements Command {
 
         userService.authorization(login, password);
         // ROLE !!!!!!!!!!!!!
-        String response = "Welcome " + login;
-        return response;
+
+        return "Welcome " + login;
         }
 }

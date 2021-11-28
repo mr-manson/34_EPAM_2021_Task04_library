@@ -7,13 +7,13 @@ import java.io.FileNotFoundException;
 public class Controller {
     private final CommandProvider provider = new CommandProvider();
 
-    public String toDo (String request) throws ServiceException, FileNotFoundException {
-        String[] incomingData;
+    public String run(String request) throws ServiceException, FileNotFoundException {
+        String[] splitRequest;
         Command command;
 
-        incomingData = request.split(" ");
-        command = provider.getCommand(incomingData[0]);
-        return command.execute(request);
+        splitRequest = request.split(" ");
+        command = provider.getCommand(splitRequest[0]);
+        return command.execute(splitRequest[0]);
     }
 
 }

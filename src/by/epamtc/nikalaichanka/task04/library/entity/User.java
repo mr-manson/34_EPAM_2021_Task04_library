@@ -1,8 +1,9 @@
 package by.epamtc.nikalaichanka.task04.library.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class User {
+public class User implements Serializable {
 
         private long userID;
         private String userLogin;

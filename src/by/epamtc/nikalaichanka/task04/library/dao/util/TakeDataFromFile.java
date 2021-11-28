@@ -6,6 +6,7 @@ import by.epamtc.nikalaichanka.task04.library.entity.User;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,32 +15,35 @@ import java.util.regex.Pattern;
 
 public class TakeDataFromFile {
 
-    public static final String USERS_PATH = "resource/users.txt";
-    public static final String BOOKS_PATH = "resource/books.txt";
+    public static final String USERS_PATH = "./resources/users.txt";
+    public static final String BOOKS_PATH = "./resources/books.txt";
 
     public static List<User> takeUsersFromFile() throws FileNotFoundException {
         List<User> users = new ArrayList<User>();
 
-        FileReader reader = new FileReader(USERS_PATH);
-        @SuppressWarnings("resource")
-        Scanner sc = new Scanner(reader);
-
-        while (sc.hasNextLine()) {
-            String userData = sc.nextLine();
-            Pattern p = Pattern.compile("'.*?'");
-            Matcher m = p.matcher(userData);
-            List<String> allMatches = new ArrayList<String>();
-            while (m.find()) {
-                allMatches.add(userData.substring(m.start() + 1, m.end() - 1));
-                String log = allMatches.get(1);
-                String pass = allMatches.get(2);
-                String fName = allMatches.get(3);
-                String lName = allMatches.get(4);
-                Role uRole = Role.valueOf(allMatches.get(5));
-                User user = new User(log, pass, fName, lName, uRole);
-                users.add(user);
+        Scanner sc;
+        try (FileReader reader = new FileReader(USERS_PATH)) {
+            sc = new Scanner(reader);
+            while (sc.hasNextLine()) {
+                String userData = sc.nextLine();
+                Pattern p = Pattern.compile("'.*?'");
+                Matcher m = p.matcher(userData);
+                List<String> allMatches = new ArrayList<String>();
+                while (m.find()) {
+                    allMatches.add(userData.substring(m.start() + 1, m.end() - 1));
+                    String log = allMatches.get(1);
+                    String pass = allMatches.get(2);
+                    String fName = allMatches.get(3);
+                    String lName = allMatches.get(4);
+                    Role uRole = Role.valueOf(allMatches.get(5));
+                    User user = new User(log, pass, fName, lName, uRole);
+                    users.add(user);
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return users;
     }
      public static long takeUsersQuantity() throws FileNotFoundException {

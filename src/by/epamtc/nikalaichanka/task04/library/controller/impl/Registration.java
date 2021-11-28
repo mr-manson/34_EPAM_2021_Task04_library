@@ -11,15 +11,13 @@ import java.io.FileNotFoundException;
 
 public class Registration implements Command {
 
-    public String execute(String request) throws ServiceException, FileNotFoundException {
+    public String execute(String request) throws FileNotFoundException, ServiceException {
         String[] splitRequest = request.split(" ");
         String login = splitRequest[1];
         String password = splitRequest[2];
         String firstName = splitRequest[3];
         String lastName = splitRequest[4];
         Role userRole = Role.valueOf(splitRequest[5]);
-
-        String response = "Registration successfully";
 
         ServiceProvider serviceFactory = ServiceProvider.getInstance();
         UserService userService = serviceFactory.getUserService();
@@ -28,6 +26,6 @@ public class Registration implements Command {
 
         userService.registration(newUser);
 
-        return response;
+        return "Registration successfully";
     }
 }

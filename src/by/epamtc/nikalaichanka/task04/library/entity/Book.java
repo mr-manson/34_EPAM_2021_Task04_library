@@ -1,8 +1,9 @@
 package by.epamtc.nikalaichanka.task04.library.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Serializable {
 
     private long bookID;
     private String bookAuthor;

@@ -5,6 +5,7 @@ import by.epamtc.nikalaichanka.task04.library.dao.UserDAO;
 import by.epamtc.nikalaichanka.task04.library.entity.User;
 import by.epamtc.nikalaichanka.task04.library.dao.util.TakeDataFromFile;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class FileUserDAO implements UserDAO {
                     return user;
                 }
             }
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             throw new DAOException("Wrong login or password", e);
         }
         return null;
