@@ -10,7 +10,7 @@ public class Main {
         Controller controller = new Controller();
         String response = "";
 
-        String request = "authorization vasya 123456";
+        String request = "registration test test test test READER";
 
         response = controller.run(request);
 

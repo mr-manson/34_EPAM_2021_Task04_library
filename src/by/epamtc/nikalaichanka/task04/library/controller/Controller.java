@@ -13,7 +13,7 @@ public class Controller {
 
         splitRequest = request.split(" ");
         command = provider.getCommand(splitRequest[0]);
-        return command.execute(splitRequest[0]);
+        return command.execute(request);
     }
 
 }

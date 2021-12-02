@@ -2,8 +2,9 @@ package by.epamtc.nikalaichanka.task04.library.dao.impl;
 
 import by.epamtc.nikalaichanka.task04.library.dao.DAOException;
 import by.epamtc.nikalaichanka.task04.library.dao.UserDAO;
+import by.epamtc.nikalaichanka.task04.library.entity.Role;
 import by.epamtc.nikalaichanka.task04.library.entity.User;
-import by.epamtc.nikalaichanka.task04.library.dao.util.TakeDataFromFile;
+import by.epamtc.nikalaichanka.task04.library.util.TakeDataFromFile;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -26,9 +27,9 @@ public class FileUserDAO implements UserDAO {
     }
 
     public void registration(User newUser) throws DAOException {
-        try (FileWriter writer = new FileWriter(TakeDataFromFile.USERS_PATH)) {
+        try (FileWriter writer = new FileWriter(TakeDataFromFile.USERS_PATH, true)) {
             long newUserID = TakeDataFromFile.takeUsersQuantity() + 1;
-            writer.append("userID='" + newUserID + "' " + newUser.toString());
+            writer.append("\nuserID='" + newUserID + "' " + newUser.toString() + " userRole='" + Role.READER + "'");
         } catch (Exception e) {
             throw new DAOException("Target file not found", e);
         }
